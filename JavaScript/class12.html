@@ -1,0 +1,293 @@
+<!-- Ajax Calls in JavaScript with "Fetch()" Metho -->
+<!-- [ 
+    {         
+        "Name": "Samsung TV",         
+        "Price": 45000.55     
+    },     
+    {         
+        "Name": "Nike Casuals",         
+        "Price": 5000.55     
+    },     
+    {         
+        "Name": "Mobile",         
+        "Price": 13000.44     
+    } 
+]  -->
+ 
+
+
+
+<!-- Add a new HTML file
+      home.html   -->
+<!-- <!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Fetch Data</title>         
+    <script>             
+        function GetProducts(){                 
+            fetch("../data/products.json")                 
+            .then(function(response){                     
+                return response.json();                 
+            }   )                 
+            .then(function(data)         {
+                for(var item of data)                     
+                {                         
+                    var tr = document.createElement("tr");                         
+                    var tdName = document.createElement("td");                         
+                    var tdPrice = document.createElement("td"); 
+                    tdName.innerHTML  = item.Name;                         
+                    tdPrice.innerHTML = item.Price; 
+                    tr.appendChild(tdName);                         
+                    tr.appendChild(tdPrice);   
+                    document.querySelector("tbody").appendChild(tr);                     
+                }                 
+            }  )             
+        }         
+    </script>     
+</head>     
+<body>         
+    <div>             
+        <button onclick="GetProducts()">Get Products</button>         
+    </div>         
+    <div>             
+        <table width="400" border="1">                 
+            <thead>                     
+                <tr>                         
+                    <th>Name</th>                         
+                    <th>Price</th> 
+                </tr>                 
+            </thead>                 
+            <tbody>   </tbody>             
+        </table>         
+    </div>     
+</body> 
+</html>  -->
+
+
+
+
+
+<!-- Consuming Nasa API   -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Nasa API - Mars Photos</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">        
+     <script>             
+        function bodyload(){                 
+            fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY&quot;")                 
+            .then(function(response){                    
+                return response.json();                 
+            }) 
+            .then(function(data){                     
+                for(var item of data.photos)                     
+                {                         
+                    var tr = document.createElement("tr");                         
+                    var tdId = document.createElement("td");                         
+                    var tdCameraName= document.createElement("td");                         
+                    var tdPhoto = document.createElement("td");                         
+                    var tdRoverName = document.createElement("td"); 
+                    tdId.innerHTML = item.id;                         
+                    tdCameraName.innerHTML = item.camera.full_name; 
+                    var img = document.createElement("img");                         
+                    img.src= item.img_src;                         
+                    img.width="200";                         
+                    img.height="200";                         
+                    tdPhoto.appendChild(img); 
+                    tdRoverName.innerHTML = item.rover.name; 
+                    tr.appendChild(tdId);                         
+                    tr.appendChild(tdCameraName);                         
+                    tr.appendChild(tdPhoto);                         
+                    tr.appendChild(tdRoverName);                         
+                    document.querySelector("tbody").appendChild(tr); 
+                }                 
+            }  )             
+        }         
+    </script>     
+</head>     
+<body class="container-fluid" onload="bodyload()">         
+    <h2>Nasa Mars Rover Photos</h2>         
+    <table class="table table-hover">             
+        <thead>                 
+            <tr>                     
+                <th>Photo ID</th>                     
+                <th>Camera Name</th>                     
+                <th>Photo</th>                     
+                <th>Rover Name</th>                 
+            </tr>             
+        </thead>             
+        <tbody>     </tbody>         
+    </table>     
+</body> 
+</html>   
+
+
+
+
+
+
+<!-- Shopping Cart -->
+<!-- <!DOCTYPE html>       
+<html>     
+<head>         
+    <title>Shopping</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <script>            
+        function GetCategories()    {                  
+            fetch("http://fakestoreapi.com/products/categories;")                  
+            .then(function(response)  {                     
+                return response.json();                  
+            }   )                  
+            .then(function(data)    {                      
+                data.unshift("all");                      
+                for(var item of data)                      
+                {                          
+                    var option = document.createElement("option");                          
+                    option.text = item.toUpperCase();                          
+                    option.value = item; 
+                    document.getElementById("lstCategories").appendChild(option );                      
+                }                  
+            }  )              
+        } 
+        function GetProducts(url)   {                  
+            document.getElementById("productsContainer").innerHTML="" ;                  
+            fetch(url)                  
+            .then(function(response)   {                     
+                return response.json();                  
+            }   )                  
+            .then(function(data)   {                      
+                for(var item of data)      {                          
+                    var card = document.createElement("div");                          
+                    card.className = "card m-2 p-2";                          
+                    card.style.width = "200px";                          
+                    card.innerHTML = `                            
+                    <img src=${item.image} height="150" class="card-img-top">                            
+                    <div class="card-header" style="height:140px">                               
+                        <p>           ${item.title}   </p>                            
+                    </div>                            
+                    <div class="card-body">                                
+                        <dl>                                   
+                            <dt>Price</dt>                                   
+                            <dd>${item.price}</dd>                                   
+                            <dt>Rating</dt>                                   
+                            <dd>${item.rating.rate} [${item.rating.count}]</dd>                                
+                        </dl>                            
+                    </div>                              
+                    <div class="card-footer">                              
+                        <button onclick="AddToCartClick(${item.id})" class="btn btn-danger w-100">                                
+                            <span class="bi bi-cart4"></span> Add to Cart                              
+                        </button>                            
+                    </div>  `;                         
+                    document.getElementById("productsContainer").appendChild(c ard);                      
+                }                  
+            }   )              
+        }              
+        function bodyload()   {                  
+            GetCategories();                  
+            GetProducts("http://fakestoreapi.com/products;");                  
+            GetCartCount(); 
+        }              
+        function CategoryChanged()  { 
+            var categoryName = document.getElementById("lstCategories").value;                                    
+            if(categoryName=="all") {                     
+                GetProducts("http://fakestoreapi.com/products;");                  
+            } else {                     
+                GetProducts(`http://fakestoreapi.com/products/category/${cate goryName}`);                  
+            }              
+        }              
+        var count = 0;              
+        var cartItems = [];              
+        function GetCartCount()  {                 
+            document.getElementById("count").innerHTML = cartItems.length;              
+        }              
+        function AddToCartClick(id) {                  
+            fetch(`http://fakestoreapi.com/products/${id}`)                  
+            .then(function(response)   {                     
+                return response.json();                  
+            }   )                  
+            .then(function(data)  { 
+                cartItems.push(data);                      
+                alert(data.title + " Added to Cart");                      
+                GetCartCount();                  
+            }   )              
+        }              
+        function LoadCartItems()   {                  
+            document.getElementById("cartBody").innerHTML ="";                   
+            for(var item of cartItems)                  
+            {                      
+                var tr = document.createElement("tr");                      
+                var tdTitle = document.createElement("td");                      
+                var tdPrice = document.createElement("td");                      
+                var tdImage = document.createElement("td"); 
+                tdTitle.innerHTML = item.title;                      
+                tdPrice.innerHTML = item.price; 
+                var img = document.createElement("img");                      
+                img.src=item.image;                      
+                img.width="50";                      
+                img.height="50"; 
+                tdImage.appendChild(img); 
+                tr.appendChild(tdTitle);                      
+                tr.appendChild(tdPrice);                      
+                tr.appendChild(tdImage); 
+                document.getElementById("cartBody").appendChild(tr);                  
+            }              
+        }         
+    </script>     
+</head>     
+<body class="container-fluid" onload="bodyload()">         
+    <header class="bg-danger text-white text-center p-2 mt-2">             
+        <h2><span class="bi bi-cart3"></span> Shopping Online </h2>         
+    </header>         
+    <section>             
+        <div class="row">                 
+            <div class="col-2">                    
+                <div>                        
+                    <label class="form-label">Select Category</label>                        
+                    <div>                           
+                        <select onchange="CategoryChanged()" class="form-select" id="lstCategories">   </select>                        
+                    </div>                    
+                </div>                 
+            </div>                 
+            <div class="col-8">                     
+                <div class="d-flex flex-wrap" id="productsContainer" style="height: 500px; overflow: auto;">       </div> 
+            </div>                 
+            <div class="col-2">                    
+                <div class="mt-2">                     
+                    <button data-bs-target="#cart" onclick="LoadCartItems()" data-bs-toggle="modal" class="btn btn-outline-danger">                         
+                        <span class="bi bi-cart4"></span>                         
+                        [<span id="count"></span>] Your Cart Items                     
+                    </button>                     
+                    <div class="modal fade" id="cart">                         
+                        <div class="modal-dialog">                             
+                            <div class="modal-content">                                 
+                                <div class="modal-header">                                     
+                                    <h3>Your Cart Items</h3>                                     
+                                    <button data-bs-dismiss="modal" class="btn-close"></button>                                 
+                                </div>                                 
+                                <div class="modal-body">                                     
+                                    <table class="table table-hover">                                         
+                                        <thead>                                             
+                                            <tr>                                                 
+                                                <th>Title</th>                                                 
+                                                <th>Price</th>                                                 
+                                                <th>Preview</th>                                             
+                                            </tr>                                         
+                                        </thead>                                         
+                                        <tbody id="cartBody">   </tbody>                                     
+                                    </table>                                 
+                                </div>                                 
+                                <div class="modal-footer">                                     
+                                    <button data-bs-dismiss="modal" class="btn btn-primary">OK</button>                                 
+                                </div>                             
+                            </div>                         
+                        </div>                     
+                    </div>                    
+                </div>                 
+            </div>             
+        </div>         
+    </section>         
+    <script src="../node_modules/jquery/dist/jquery.js">    </script>         
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js">  </script>     
+</body> 
+</html>  -->
