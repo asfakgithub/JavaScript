@@ -1,0 +1,59 @@
+<!-- Class -->
+<script>      
+    class Product {          
+        Name = "Samsung TV";          
+        Price = 56000.66;          
+        Stock = true;          
+        ShippedTo = ["Delhi", "Hyd"];          
+        Rating = {Rate:3.4, Count:500};      
+    }   
+    let  tv  =  new Product;       
+    document.write(`Name=${tv.Name}<br>Price=${tv.Price} < br>Rating=${tv.Rating.Rate}`);     
+</script> 
+ 
+ 
+
+
+
+<!-- Accessors  -->
+<script>      
+    var username = prompt("Enter User Name");      
+    var password  = prompt("Enter Password");      
+    var productname = prompt("Enter Product Name");      
+    class Product {         
+        _productName;          
+        get ProductName(){              
+            return this._productName;          
+        }          
+        set ProductName(newName) {              
+            if(username=="john" && password=="john@11") {                  
+                this._productName = newName;              
+            } else {                  
+                document.write("Unauthorized : You are not authorized to set product name");              
+            }          
+        }      
+    }      
+    let obj = new Product;      
+    obj.ProductName = productname;      
+    if(obj.ProductName) {          
+        document.write(`Product Name :  ${obj.ProductName}`);      
+    }  
+</script>
+
+
+
+
+<!-- Methods  -->
+<script>       
+    class Product {           
+        Name = "TV";  Price = 56000;  Qty = 3;           
+        Total() {           
+            return this.Qty * this.Price;          
+        }           
+        Print() {              
+            document.write(``);          
+        }           
+    }       
+    let obj = new Product;       
+    obj.Print();      
+</script> 

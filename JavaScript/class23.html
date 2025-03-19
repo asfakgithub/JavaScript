@@ -1,0 +1,70 @@
+<!-- Function as Parameter -->
+<script>       
+    function Login(userid, password, success, failure){          
+        if(userid=="john" && password=="john11"){              
+            success();          
+        } else {              
+            failure();          
+        }      
+    }      
+    Login('john11', 'john11', function(){document.write('Login Success')}, 
+    function(){document.write('Invalid Credentials')}); 
+
+</script> 
+
+
+
+
+<!-- Rest Parameters  -->
+<script>      
+    function Login(msg,...loginDetails) {          
+        const [userid, password, success, failure] = loginDetails;          
+        document.write(msg);        
+        if(userid=="john" && password=="john11"){              
+            success();          
+        } else {              
+            failure();          
+        }              
+    }      
+    Login("<h2>Rest Parameters</h2>",'john', 'john11', 
+    function(){document.write('Login Success')}, 
+    function(){document.write('Invalid Credentials')}); 
+</script> 
+
+
+
+
+<!-- Function with Return Type Defined  -->
+<script>        
+    function Add(a ,  b){            
+        return  a  + b;        
+    }        
+    document.write(`Type of Add : ${typeof Add(10,20)} <br>Addition=${Add(10,20)}`);  
+</script> 
+
+
+<script>        
+    function PrintDetails(){            
+        document.write("Statement1");            
+        return;            
+        document.write("Statement2");                      
+        document.write("Statement3");        
+    }        
+    PrintDetails();  
+</script>
+
+
+
+
+
+
+<!-- Function Recurrsion   -->
+<script>      
+    function Factorial(n){          
+        if(n==0){              
+            return 1;          
+        }          
+        return n * Factorial(n-1);      
+    }      
+    document.write(`Factorial of 5 is ${Factorial(5)}`);  
+</script>

@@ -1,0 +1,160 @@
+<!-- Date Type   -->
+<!-- <script>       
+    let Mfd = new Date("2021-08-15");       
+    let months = ["January",  "Feb","Mar","Apr","May","June","July","August","Sep"];       
+    let weekdays= ["Sunday","Monday","Tue","Wed",  "Thu", "Fir","Sat"];       
+    document.write (`            
+    Manufactured Date : ${Mfd.getDate()} <br>            
+    Manufactured Month: ${months[Mfd.getMonth()]}  <br>           
+    Manufactured Weekday: ${weekdays[Mfd.getDay()]} <br>           
+    Manufactured Year: ${Mfd.getFullYear()} <br>           
+    Manufactured Date : ${weekdays[Mfd.getDay()]}, ${Mfd.getDate()} - ${months[Mfd.getMonth()] } ${Mfd.getFullYear()}        
+    `); 
+</script> -->
+
+
+
+<!-- <script>      
+    let Mfd = new Date("2021-08-15");      
+    let months = ["January", "Feb","Mar","Apr","May","June","July","August","Sep"];      
+    let weekdays= ["Sunday","Monday","Tue","Wed", "Thu", "Friday","Sat"];      
+    Mfd.setMonth(8);      
+    Mfd.setDate(25);      
+    document.write(`           
+    Manufactured Date : ${Mfd.getDate()} <br>           
+    Manufactured Month: ${months[Mfd.getMonth()]} <br>           
+    Manufactured Weekday: ${weekdays[Mfd.getDay()]} <br>           
+    Manufactured Year: ${Mfd.getFullYear()} <br>           
+    Manufactured Date : ${weekdays[Mfd.getDay()]}, ${Mfd.getDate()} - ${months[Mfd.getMonth()] } ${Mfd.getFullYear()}        
+    `); 
+</script>  -->
+
+
+
+<!-- JavaScript Timer Events:   -->
+<!-- setInterval()  -->
+<!-- <!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Time</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <style>             
+        #container {                 
+            display: flex; 
+            justify-content: space-between;                 
+            font-size: 25px;                 
+            background-color: red;                 
+            color:white;                 
+            padding: 5px;             
+        }         
+    </style>         
+    <script>             
+        function Clock(){                 
+            var now = new Date();                 
+            document.getElementById("time").innerHTML = now.toLocaleTimeString();             
+        }             
+        function bodyload(){                 
+            setInterval(Clock, 1000);                 
+            var now = new Date();                 
+            var icon = document.getElementById("icon");                 
+            var msg = document.getElementById("msg");                 
+            var hrs = now.getHours();                 
+            if(hrs>=0 && hrs<=12) {                     
+                msg.innerHTML = "Good Morning";                     
+                icon.className= "bi bi-brightness-alt-high";                 
+            } else if (hrs>=13 && hrs<=17) {                     
+                msg.innerHTML = "Good Afternoon";                     
+                icon.className = "bi bi-brightness-high";                 
+            } else {                     
+                msg.innerHTML = "Good Evening"; 
+                icon.className = "bi bi-cloud-sun-fill";                 
+            }             
+        }         
+    </script>     
+</head>     
+<body onload="bodyload()">         
+    <div id="container">             
+        <span>Amazon Shopping</span>             
+        <span>                
+            <span id="icon"></span>  
+            <span id="msg"></span>             
+        </span>             
+        <span id="time"></span>         
+    </div>     
+</body> 
+</html>  -->
+
+
+
+
+
+<!-- Dynamic Date -->
+<!-- <!DOCTYPE html>  
+<html>     
+<head> 
+    <title>Date Demo</title>         
+    <script>             
+        function DateChanged(){                 
+            var weekdays = ["Sunday","Mon","Tue","Wed","Thu","Fri","Sat"]; 
+            var departure = new Date(document.getElementById("txtDate").value);                 
+            document.querySelector("h2").innerHTML = `Departure Date : ${weekdays[departure.getDay()]}, ${departure.toLocaleDateString()}`;             
+        }         
+    </script>     
+</head>     
+<body>         
+    Departure Date :         
+    <input type="date" onchange="DateChanged()" id="txtDate"> <br>         
+    <h2>   </h2>      
+</body> 
+</html>  -->
+
+
+
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Login</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <style>             
+        dd,dt {                 
+            margin-top: 10px;             
+        }         
+    </style>         
+    <script>             
+        function GenerateCode() { 
+            var a = Math.random() * 10;                 
+            var b = Math.random() * 10;                 
+            var c = Math.random() * 10;                 
+            var d = Math.random() * 10;                 
+            var e = Math.random() * 10;                 
+            var f = Math.random() * 10;                 
+            return `${Math.round(a)} ${Math.round(b)} ${Math.round(c)} ${Math.round(d)} ${Math.round(e)} ${Math.round(f)}`;             
+        }             
+            function bodyload()  {                 
+                document.getElementById("code").innerHTML = GenerateCode();             
+            }             
+            function NewCode()  {                 
+                bodyload();             
+            }         
+        </script>     
+</head>     
+<body onload="bodyload()">         
+    <fieldset>             
+        <legend>User Login</legend>             
+        <dl>                 
+            <dt>User Name</dt>                 
+            <dd><input type="text"></dd>                 
+            <dt>Password</dt>                 
+            <dd><input type="password"></dd> 
+            <dt>Verify Code 
+                <button onclick="NewCode()" class="btn">
+                    
+                    <i class="bi bi-arrowclockwise"></i>
+                </button> 
+            </dt>                 
+            <dd><span id="code"></span></dd>             
+        </dl>             
+        <button>Login</button>         
+    </fieldset>     
+</body> 
+</html> 

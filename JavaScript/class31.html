@@ -1,0 +1,180 @@
+<!-- Timer Events:  setTimeout() -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function msg1(){
+            document.querySelector("h2").innerHTML = "Hello ! - msg1";
+        }
+        function msg2(){
+            document.querySelector("h2").innerHTML = "How are your? - msg2";
+        }
+        function msg3(){
+            document.querySelector("h2").innerHTML = "Welcome to JavaScript - msg3";
+        }
+        var m1, m2, m3;
+        function bodyload(){
+            m1 =  setTimeout(msg1, 4000);
+            m2 = setTimeout(msg2, 6000);
+            m3 =  setTimeout(msg3,10000);
+        }
+        function Cancel2(){
+            clearTimeout(m2);
+        }
+    </script> 
+</head>
+<body onload="bodyload()">
+    <h2 align="center"></h2>
+    <div align="center">
+        <button onclick="Cancel2()">Cancel Message 2</button>
+    </div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">
+    <script>
+        var products = [];
+        var index = 0;
+        function GetProduct() {
+            document.getElementById("productTitle").innerHTML = products[index].title;
+            document.getElementById("productImage").src = products[index].image;
+            index++;
+        }
+        function bodyload(){
+            fetch("http://fakestoreapi.com/products&quot")
+            .then(response=> response.json())
+            .then(data=>{
+                products = data;
+                GetProduct(0)
+            })
+        }
+        var slideshow;
+        function PlayClick(){
+            slideshow = setInterval(GetProduct,3000);
+            document.querySelector("#status").innerHTML = "Slide Show - Started";
+        }
+        function PauseClick(){
+            clearInterval(slideshow);
+            document.querySelector("#status").innerHTML = "Slide Show - Paused";
+        }
+    </script>    
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <div class="card p-3">
+        <div class="card-header text-center">
+            <p id="status"></p>
+            <p id="productTitle"></p>
+        </div>
+        <div class="card-body text-center">
+            <img id="productImage" width="80%" height="300">
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-success" onclick="PlayClick()">
+                <span class="bi bi-play"></span>
+            </button>
+            <button class="btn btn-danger" onclick="PauseClick()">
+                <span class="bi bi-pause"></span>
+            </button>
+        </div>
+    </div>
+</body> 
+</html> 
+
+
+
+<!-- location: host: port: protocol : href : hash : search: pathname : -->
+ 
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location</title>
+    <style>
+        dt {
+            background-color: gray;
+            color:white;
+        }
+    </style>
+    <script>   
+        function GetLocation(){
+            document.getElementById("host").innerHTML = location.host;
+            document.getElementById("protocol").innerHTML = (location.protocol=='http:')?`You are accessing ${location.protocol}from Web Server`:"You are accessign from File Server";
+            document.getElementById("port").innerHTML = location.port;
+            document.getElementById("path").innerHTML = location.pathname;
+            document.getElementById("href").innerHTML = location.href;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend><button onclick="GetLocation()">Get Location Details</button></legend>
+        <dl>
+            <dt>Server Name / IP Address</dt>
+            <dd id="host"></dd>
+            <dt>Protocol</dt>
+            <dd id="protocol"></dd>
+            <dt>Port</dt>
+            <dd id="port"></dd>
+            <dt>URL</dt>
+            <dd id="href"></dd>
+            <dt>Path</dt>
+            <dd id="path"></dd>
+        </dl> 
+    </fieldset>
+</body>
+</html> 
+
+
+
+
+<!-- Ex:- Location Search  search.html   -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>    
+    <form method="get" action="results.html">
+        <div align="center">
+            <h1>Google</h1>
+            <input type="text" name="search" size="40" placeholder="Your search string">
+            <p>
+                <button>Search</button>
+            </p>
+        </div>
+    </form>
+</body>
+</html> 
+ 
+<!-- Ex:- results.html   -->
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Results</title>
+    <script>
+        var topics = [
+        {title: "Oracle", Details: "It is a database.."},
+        {title: "Html", Details: "It is a markup language"}
+        ];
+        function bodyload(){
+            var term  = location.search.substring(location.search.indexOf("=")+1);
+            document.querySelector("p").innerHTML = `Topic : ${term} <br>
+            Details: ${topics.find(item=>item.title==term).Details}`;
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Results</h2>
+    <p></p>
+</body>
+</html> 

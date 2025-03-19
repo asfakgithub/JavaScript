@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Constructor</title>         
+    <script>             
+        class Database{                 
+            constructor(dbName){                     
+                document.write(`Connected to ${dbName} <br>`); 
+            }                 
+            Insert(){                     
+                document.write('Record Inserted');                 
+            }                 
+            Delete(){                     
+                document.write('Record Deleted');                 
+            }             
+        }             
+        let db = new Database("Oracle");             
+        function InsertClick(){                                 
+            db.Insert();             
+        }             
+        function DeleteClick(){                                 
+            db.Delete();             
+        }         
+    </script>     
+</head>     
+<body>         
+    <button onclick="InsertClick()">Insert</button>         
+    <button onclick="DeleteClick()">Delete</button>     
+</body> 
+</html>

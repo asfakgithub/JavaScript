@@ -1,0 +1,315 @@
+<!--Ex1  EMI Calculator -->
+<!-- <!DOCTYPE html>  
+<html>     
+    <head>         
+        <title>EMI Calculator</title>         
+        <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+        <link rel="stylesheet" href="../node_modules/bootstrap /dist/css/bootstrap.css">         
+        <style>             
+            .form-element {                 
+                width: 100px;             
+            }         
+        </style>         
+        <script> 
+            function AmountChange() {                 
+                document.getElementById("txtAmount").value =  document.getElementById("amountRange").value;             
+            }             
+            function CalculateClick() {             
+                var p = parseInt(document.getElementById("txtAmount").value);                 
+                var r = parseInt(document.getElementById("txtInterest").value);                 
+                var n = parseInt(document.getElementById("txtYears").value);                 
+                var emi = ""; 
+            }             
+            function UpdateAmount() {                 
+                document.getElementById("amountRange").value = document.getElementById("txtAmount").value;             
+            }         
+        </script>     
+    </head>     
+<body class="container-fluid">         
+    <div>             
+        <h2>EMI Calculator</h2>             
+        <div class="row">                 
+            <div class="col">                     
+                <div class="input-group">                         
+                    Amount you need 
+                    <span class="input-group text">&#8377;  </span> 
+                    <input type="text" onchange="UpdateAmount()" id="txtAmount" class="formelement">                     
+                </div>                 
+            </div>                 
+            <div class="col">                     
+                <div class="input-group">                         
+                    for <input type="text" id="txtYears" class="formelement"> years                     
+                </div>                 
+            </div>                 
+            <div class="col">                     
+                <div class="input-group">                         
+                    Interest rate <input type="text" id="txtInterest" class="form-element"> %                     
+                </div>                 
+            </div>             
+        </div>             
+        <div class="row mt-4">                 
+            <div class="col">                     
+                50,000 <input type="range" onchange="AmountChange()" id="amountRange" min="50000" max="4000000" value="50000"> 4000000                 
+            </div>                 
+            <div class="col">                    
+                1 <input type="range" min="1" id="yearRange" value="1" max="5"> 5 
+            </div>                 
+            <div class="col">                   
+                10.5% <input type="range" min="10" id="interestRange" max="21" value="10" step="0.5"> 21%                 
+            </div>             
+        </div>             
+        <div class="row mt-4">                 
+            <div class="col">                     
+                <button  onclick="CalculateClick()" class="btn btnprimary">Calculate</button>                 
+            </div>             
+        </div>         
+    </div>     
+</body> 
+</html>   -->
+
+
+
+
+<!-- Ex:- 2 EMI Calculator  -->
+<!-- <!DOCTYPE html>  
+<html> 
+    <head>     
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">     
+        <link rel="stylesheet" href="/node_modules/bootstrapicons/font/bootstrap-icons.css"> 
+        <title>EMI Calculator</title> </head> 
+        <script>     
+            function AmountChange() {         
+                document.getElementById("Amount").value = document.getElementById("LoanAmount").value;     
+            }     
+            function IRchange() {         
+                document.getElementById("IR").value = document.getElementById("LoanIR").value;     
+            }     
+            function YearsChange() {         
+                document.getElementById("Years").value = document.getElementById("LoanYears").value;     
+            }     
+            function Calculate() {         
+                var time = document.getElementById("Years").value * 12;         
+                var rate = document.getElementById("IR").value / 1200;         
+                var money = document.getElementById("Amount").value;         
+                var result; 
+                result = money * rate * ((1 + rate) ** time) / (((1 + rate) ** time) - 1);         
+                error.innerHTML = `your monthly EMI payment is<b> &#8377 ${result} </b>`;     
+            }     
+            function bodyLoad() {         
+                AmountChange();         
+                IRchange();         
+                YearsChange();         
+                Calculate();     
+            } 
+        </script> 
+        <style>     
+            button {         
+                position: relative;         
+                top: 50px;         
+                left: 1240px;     
+            }     
+            .content {         
+                display: grid; 
+                grid-template-columns: 4fr 4fr 4fr;     
+            } 
+        </style> 
+        <body class="container-fluid" onload="bodyLoad()">     
+            <h2>EMI Calculator</h2>     
+            <div class="content">         
+                <div class="input-group m-2 p-2">             
+                    <span class="input-group-text">Amount you need</span>             
+                    <input type="text" class="form-control" id="Amount">             
+                    <input onchange="AmountChange()" type="range" min="00" max="4000000" value="0" id="LoanAmount"                 
+                    class="form-range">             
+                    <span class="col">0</span>             
+                    <span class="col text-end">4000000</span>         
+                </div>         
+                <div class="input-group m-2 p-2">             
+                    <span class="input-group-text">for</span>             
+                    <input type="text" class="form-control" id="Years">             
+                    <span class="input-group-text">years</span> 
+                    <input class="form-range" onchange="YearsChange()" type="range" id="LoanYears" min="1" max="5" value="1">             
+                    <span class="col">1</span>             
+                    <span class="col text-end">5</span>         
+                </div>         
+                <div class="input-group m-2 p-2">             
+                    <span class="input-group-text">Interest rate</span>             
+                    <input type="text" class="form-control" id="IR">             
+                    <span class="input-group-text">%</span>             
+                    <input class="form-range" type="range" min="0" max="21" value="0" id="LoanIR" onchange="IRchange()">             
+                    <span class="col">0</span>             
+                    <span class="col text-end">21</span>         
+                </div>     
+            </div>     
+            <button onclick="Calculate()" class="btn btnprimary">Calculate</button>     
+            <div id="error" class="bg-dark text-light w-50 p-2">     </div> 
+    </body> 
+</html>  -->
+
+
+
+
+
+
+<!-- EMI Calculator [ HDFS ]   -->
+<!-- <!DOCTYPE html>  
+<html lang="en-IN"> 
+<head>     
+    <title>EMI Calculator</title>     
+    <link rel="stylesheet" href="/node_modules/bootstrapicons/font/bootstrap-icons.css">     
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">     
+    <style>         
+        input {             
+            width: 100px;         
+        }         
+        #border {            
+            border: 5px solid black;             
+            padding: 20px;             
+            border-radius: 10px;         
+        }     
+    </style>     
+    <script> 
+        function AmountChange() {             
+            document.getElementById("txtAmount").value = document.getElementById("rangeAmount").value;         
+        }         
+        function YearChange() {             
+            document.getElementById("txtYear").value = document.getElementById("rangeYear").value;         
+        }         
+        function RateChange() {             
+            document.getElementById("txtRate").value = document.getElementById("rangeRate").value;         
+        }         
+        function Calculate() {             
+            var amount = document.getElementById("rangeAmount").value;             
+            var year = document.getElementById("rangeYear").value;             
+            var rate = document.getElementById("rangeRate").value;             
+            var EMI = amount * (rate / 100) * (1 + (rate / 100)) * year * 12 / ((1 + (rate / 100)) * (year * 12) - 1);
+            document.getElementById("msg").innerHTML = `Your Monthly EMI will be &#8377;${EMI.toFixed(2)} per month`;         
+        }     
+    </script> 
+</head> 
+<body>     
+    <div class="m-5" id="border">         
+        <h2 class="bg-info text-white text-center p-2">EMI Calculator</h2>         
+        <div class="row my-5">             
+            <div class="col">                 
+                Amount <input type="text" id="txtAmount" placeholder="&#8377;">                 
+                <input type="range" id="rangeAmount" onchange="AmountChange()" class="form-range w-75" min="20000"                     
+                max="200000" value="10000">                 
+                <div class="row w-75">                     
+                    <div class="col">&#8377;10,000</div>                     
+                    <div class="col text-end">&#8377;2,00,000</div>                 
+                </div> 
+            </div>             
+            <div class="col">                 
+                Select <input type="text" id="txtYear" placeholder="Years">                 
+                <input type="range" id="rangeYear" onchange="YearChange()" class="form-range w-75" min="1" max="10"                     
+                value="00">                 
+                <div class="row w-75">                     
+                    <div class="col">1 Year</div>                     
+                    <div class="col text-end">10 Year</div>                 
+                </div>             
+            </div>             
+            <div class="col">                 
+                Interest <input type="text" id="txtRate" placeholder="%">                 
+                <input type="range" id="rangeRate" onchange="RateChange()" class="form-range w-75" min="1" max="20"                     
+                value="00" step="0.05">                 
+                <div class="row w-75"> 
+                    <div class="col">1%</div>                     
+                    <div class="col text-end">20%</div>                 
+                </div>             
+            </div>         
+        </div>         
+        <div class="mt-5">             
+            <button class="btn btn-success" onclick="Calculate()">Calculate</button>         
+        </div>         <p id="msg" class="mt-5 text-center text-white bg-danger p3 w-50"></p>     
+    </div>     
+    <script src="/node_modules/jquery/dist/jquery.js"></script>     
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"> </script> 
+</body> 
+</html> -->
+                    
+
+
+
+
+
+<!-- Ex:-  -->
+<!-- <!DOCTYPE html> 
+ <html>     
+<head> 
+    <title>Operators</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">         
+    <script>             
+        function GetProduct(url) {                 
+            fetch(url)                 
+            .then(function(response){                     
+                return response.json();                 
+            })                 
+            .then(function(data){                     
+                document.getElementById("prodTitle").innerHTML = data.title;                     
+                document.getElementById("prodImg").src = data.image;                     
+                document.getElementById("prodDesc").innerHTML = data.description;                 
+            })             
+        }             
+        function bodyload()  {  
+            GetProduct("http://fakestoreapi.com/products/1&quot;");             
+        }             
+        var count = 1;             
+        function NextClick(){                 
+            count++;  GetProduct(`http://fakestoreapi.com/products/${count}`); 
+        }             
+        function PreviousClick() {                 
+            count--;                
+            GetProduct(`http://fakestoreapi.com/products/${count}`);             
+        }             
+        function ProductSliderChanged() {                 
+            var id = parseInt(document.getElementById("productSlider").value);                 
+            GetProduct(`http://fakestoreapi.com/products/${id}`);             
+        }         
+    </script>         
+    <style>             
+        #prodDesc {                 
+            position: fixed;                 
+            right: 20px;                 
+            top:550px;                 
+            border:2px solid darkcyan;                 
+            padding: 10px;                 
+            width: 70px;                 
+            height: 100px;                 
+            background-color: darkcyan;                 
+            color:white;                 
+            font-size: 20px;                 
+            overflow: auto;             
+        }         
+    </style>     
+</head> 
+<body onload="bodyload()">         
+    <div class="container-fluid" style="margin-top: 100px;">             
+        <div class="d-flex justify-content-center align-itemscenter" style="height: 400px;">                 
+            <div>                     
+                <div>                         
+                    <input type="range" onchange="ProductSliderChanged()" id="productSlider" min="1" max="20" value="1" class="form-range">                     
+                </div>                     
+                <div class="card">                         
+                    <div class="card-header text-center">                             
+                        <h2 id="prodTitle"></h2>                         
+                    </div>                         
+                    <div class="card-body text-center">                             
+                        <img width="300" id="prodImg" height="300">                             
+                        <p id="prodDesc" class="w-50 text-center">     </p>                         
+                    </div>                         
+                    <div class="card-footer text-center">                             
+                        <button class="btn btn-danger" onclick="PreviousClick()">                                 
+                            <span class="bi bi-chevron-bar-left"></span>                             
+                        </button>                
+                        <button class="btn btn-danger" onclick="NextClick()">                              
+                            <span class="bi bi-chevron-bar-right"></span> 
+                        </button>                         
+                    </div>                     
+                </div>                 
+            </div>             
+        </div>         
+    </div>     
+</body> 
+</html> -->

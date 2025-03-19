@@ -1,0 +1,37 @@
+<!-- Undefined Type -->
+<script>      
+    var name = "Samsung TV";      
+    var price;      
+    if(price==undefined){          
+        document.write(`Name=${name}`);      
+    } else {      
+        document.write(`Name=${name}<br>Price=${price}`);      
+    }  
+</script> 
+
+
+<!-- Null Type -->
+<script>      
+    var name = "Samsung TV";      
+    var price  = prompt("Enter Price");      
+    if(price==null) { 
+        document.write("Please Enter Price");      
+    } else if (price=="") {          
+        document.write("Price can't be Empty");      
+    } else {       
+        document.write(`Name=${name}<br>Price=${price}`);      
+    }  
+</script> 
+
+
+<!-- Storing values into Array:   -->
+<script>      
+    var categories = [];      
+    categories[0] = "Samsung TV";      
+    categories[1] = true;      
+    categories[2] = 45000.55;      
+    categories["3"] = "Electronics";          
+    for(var property in categories) { 
+        document.write(`${property} [${typeof property}] -  ${categories[property]} [${typeof  categories[property]}]<br>`);      
+    }  
+</script>

@@ -1,0 +1,235 @@
+<!-- Keyboard Events -->
+<!DOCTYPE html> 
+<html>     
+<head>         
+    <title>Demo</title>         
+    <script>             
+        function GetCode(e){                 
+            document.querySelector("p").innerHTML = `KeyCode  : ${e.keyCode} <br>
+            charCode : ${e.charCode} <br>                    
+            which    : ${e.which}  `;             
+        }
+    </script>     
+</head>     
+<body>         
+    <input type="text" id="txtName" onkeypress="GetCode(event)">         
+    <p></p>     
+</body> 
+</html>
+
+
+<!-- Ex:- -->
+<!DOCTYPE html> 
+<html>    
+<head>         
+    <title>Demo</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> 
+    <script>
+        var userdetails = [ {UserName: 'john'}, {UserName: 'john12'}, {UserName: 'david'} ];             
+        function VerifyUser(){                 
+            var username = document.getElementById("txtName").value;                 
+            var msg = document.getElementById("msg");                 
+            for(var user of userdetails){
+                if(user.UserName==username) {
+                    msg.innerHTML = 'User Name Taken - Try Another';
+                    msg.style.color = 'red';                         
+                    break;
+                } else {
+                    msg.innerHTML = 'User Name Available';
+                    msg.style.color = 'green';
+                }
+            }
+        }
+        function CapsWarning(e) {
+            if(e.keyCode>=65 && e.keyCode<=90){
+                document.getElementById("capsWarning").style.display = "block";
+            } else {
+                document.getElementById("capsWarning").style.display = "none";
+            }
+        }
+    </script>
+</head>     
+<body class="container-fluid">
+    <fieldset>
+        <legend>Register</legend>
+        <dl>
+            <dt>User Name</dt>
+            <dd>
+                <input type="text" id="txtName" onkeyup="VerifyUser()">
+                <div id="msg"></div>
+            </dd>
+            <dt>Password</dt>
+            <dd>
+                <input type="password" id="txtPwd" onkeypress="CapsWarning(event)">
+                <div class="text-warning" id="capsWarning" style="display: none;">
+                    <span class="bi bi-exclamation-triangle"></span> Warning : CAPS ON
+                </div>                 
+            </dd>             
+        </dl>
+    </fieldset>     
+</body> 
+</html>
+
+
+<!-- Ex:- -->
+<!DOCTYPE html>  
+<html>
+<head>
+    <title>Demo</title>
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var userdetails = [ {UserName: 'john'},  {UserName: 'john12'},  {UserName: 'david'} ];
+        function VerifyUser(){
+            var username = document.getElementById("txtName").value;
+            var msg = document.getElementById("msg");
+            for(var user of userdetails) {
+                if(user.UserName==username) {
+                    msg.innerHTML = 'User Name Taken - Try Another';
+                    msg.style.color = 'red';
+                    break;
+                } else {
+                    msg.innerHTML = 'User Name Available';
+                    msg.style.color = 'green';
+                }
+            }
+        }
+        function ShowStatus(min, max, value) {
+            var meter = document.getElementById("meter");
+            meter.min = min;
+            meter.max = max;
+            meter.value = value;
+        } 
+        function VerifyPassword() {
+            var password = document.getElementById("txtPwd").value;
+            var regExp = /(?=.*[A-Z])\w{4,10}/;
+            var passwordMsg = document.getElementById("passwordMsg"); 
+            if(password.match(regExp)) {
+                passwordMsg.innerHTML = "Strong Password";
+                ShowStatus(1,100,100);
+            } else {
+                if(password.length<4) {
+                    passwordMsg.innerHTML = "Poor Password";
+                    ShowStatus(1,100,20);
+                } else {
+                    passwordMsg.innerHTML = "Weak Password";
+                    ShowStatus(1,100,60);
+                }
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <fieldset>
+        <legend>Register</legend> 
+        <dl class="w-25">
+            <dt>User Name</dt>
+            <dd>
+                <input type="text" id="txtName" onkeyup="VerifyUser()">
+                <div id="msg"></div>
+            </dd>
+            <dt>Password</dt>
+            <dd>
+                <input type="password" id="txtPwd" onkeyup="VerifyPassword()">
+                <div>
+                    <meter id="meter" style="width: 100%; height: 20px;" min="1" max="100"></meter>                     
+                </div>                     
+                <div id="passwordMsg">   </div>
+            </dd>
+        </dl>
+    </fieldset>
+</body>
+</html>
+
+
+<!-- Mouse Events  -->
+<!-- Ex:- -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse</title>
+    <script>
+        var images =  ["images.jpg", "kfc.jpg","laptop.webp", "mobile.jpg"]             
+        function bodyload(){                 
+            for(var image of images) {
+                var img = document.createElement("img");
+                img.src = image;
+                document.getElementById("gallery").appendChild(img);
+            }
+        }
+    </script>
+    <style>
+        body {                 
+            display: flex; 
+            align-items: center;
+            height: 500px;
+        }
+        #gallery img {
+            height: 150px;
+            width: 150px;
+            z-index: -1;
+            opacity: 0.4;
+            transition: 2s;
+        }
+        #gallery img:hover {
+            transform: scale(2);
+            transition: 2s;
+            z-index: 1;
+            opacity: 1;
+        }
+        marquee {
+            height: 300px;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+    <marquee  onmouseover="this.stop()" onmouseout="this.start()">             
+        <div id="gallery"> </div>
+    </marquee>
+</body> 
+</html> 
+
+
+<!-- Ex:- -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Mouse</title>         
+    <script>             
+        function GetPosition(e){                 
+            var flag = document.getElementById("flag");                 
+            flag.style.position = "fixed";                 
+            flag.style.top = e.clientY + "px";                 
+            flag.style.left = e.clientX + "px";                 
+            document.querySelector("h3").innerHTML = `X=${e.clientX} <br> Y=${e.clientY}`;             
+        }         
+    </script>     
+</head>     
+<body onmousemove="GetPosition(event)">         
+    <div style="height: 1000px; display: flex;">             
+        <h3></h3>         
+    </div>        
+     <img id="flag" src="../public/images/flag.gif" width="50" height="50">     
+</body> 
+</html> 
+ 
+<!-- //Ex:- -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Mouse</title>         
+    <script> 
+        function ShowOffer(){                 
+            document.getElementById("pic").src="../public/images/speakero ffer.png";             
+        }             
+        function HideOffer(){                 
+            document.getElementById("pic").src="../public/images/offer.png ";             
+        }         
+    </script>     
+</head>     
+<body>         
+    <p>Hold Down Mouse Button on Offer</p>         
+    <img onmousedown="ShowOffer()" onmouseup="HideOffer()" src="../public/images/offer.png" id="pic">             
+</body> 
+</html>

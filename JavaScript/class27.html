@@ -1,0 +1,107 @@
+<!-- Constructor  -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Constructor</title>         
+    <script>             
+        class Database{                 
+            constructor(dbName){                     
+                console.log(`Connected to ${dbName}`); 
+            }                 
+            Insert(){                     
+                document.write('Record Inserted');                 
+            }                 
+            Delete(){                     
+                document.write('Record Deleted');                 
+            }             
+        }             
+        let db = new Database("Oracle");             
+        function InsertClick(){                                 
+            db.Insert();             
+        }             
+        function DeleteClick(){                                 
+            db.Delete();             
+        }         
+    </script>     
+</head>     
+<body>         
+    <button onclick="InsertClick()">Insert</button>         
+    <button onclick="DeleteClick()">Delete</button>     
+</body> 
+</html>
+
+
+<!-- //Aggregation -->
+<script>      
+    class BaseClass{        
+        Print(){             
+            document.write(`Base Class Print Method<br>`);         
+        }     
+    }     
+    class Derived {         
+        Print(){ 
+            let obj = new BaseClass();             
+            obj.Print();             
+            document.write(`Derived Class Print Method<br>`);         
+        }     
+    }     
+    let obj = new Derived;     
+    obj.Print(); 
+</script>
+
+<!-- //Inheritance -->
+<script>      
+    class BaseClass{         
+        Print(){             
+            document.write(`Base Class Print Method<br>`);         
+        }     
+    }     
+    class Derived extends BaseClass{         
+        Print(){             
+            super.Print(); 
+            document.write(`Derived Class Print Method<br>`);         
+        }     
+    }     
+    let obj = new Derived;     
+    obj.Print(); 
+</script>
+
+
+
+<script>      
+    class BaseClass {          
+        constructor(uname){              
+            document.write(`Base Class Constructor ${uname}  <br>`);     
+        }         
+        Print(){            
+            document.write(`Base Class Print Method<br>`);         
+        }     
+    }     
+    class Derived extends BaseClass {         
+        constructor(){             
+            super('john');             
+            document.write(`Derived Class Constructor<br>`);         
+        }         
+        Print(){              
+            document.write(`Derived Class Print Method<br>`);             
+            super.Print();         
+        }     
+    }     
+    let obj = new Derived; 
+    obj.Print(); 
+</script>
+
+
+
+<script>      
+    class SBI_BankApp_Version1     {          
+        CustomerModule = "Bank Customer Module for Customers";          
+        AdminModule = "Bank Admin Module to Manage           Customers";     
+    }class SBI_BankApp_Version2 extends SBI_BankApp_Version1  {         
+        CreditCardModule = "Bank Credit Card Payments";     
+    }     class SBI_BankApp_Version3 extends SBI_BankApp_Version2     {         
+        NIRModule = "Bank NRI Module for NRI's";     
+    }     
+    let windows10User = new SBI_BankApp_Version1();    
+</script> 
+ 

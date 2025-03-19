@@ -1,0 +1,110 @@
+<!-- Polymorphism  -->
+<script>    
+    class Employee{        
+        FirstName;        
+        LastName;        
+        Designation;        
+        Print() {            
+            document.write(`${this.FirstName} ${this.LastName} - ${this.Designation}<br>`);        
+        }    
+    }    
+    class Developer extends Employee{        
+        FirstName = "Raj";        
+        LastName = "Kumar";        
+        Designation = "Developer";        
+        Role = "Developer Role : Build, Debug, Test, Deploy <br>";        
+        Print(){            
+            super.Print();            
+            document.write(this.Role);        
+        }    
+    }    
+    class Admin extends Employee{        
+        FirstName = "Kiran";        
+        LastName = "Kumar"; 
+        Designation = "Admin";        
+        Role = "Admin Role : Authentication, Authorization <br>";        
+        Print(){            
+            super.Print();            
+            document.write(this.Role);        
+        }    
+    }    
+    class Manager extends Employee{        
+        FirstName = "Tom";        LastName = "Hanks";        Designation = "Manager";        
+        Role = "Manager Role : Approvals <br>";        
+        Print(){            
+            super.Print();            
+            document.write(this.Role);        
+        }    
+    }    
+    let employees = new Array(new Developer(), new Admin(), new Manager());    
+    let designation = prompt("Enter Desigation");    
+    for(var employee of employees){        
+        if(employee.Designation==designation) {            
+            employee.Print();        
+        }    
+    }     
+</script> 
+
+
+<!-- Ex:- Default Arguments   -->
+<head>     
+    <script>         
+        function InsertClick(obj, e, msg){             
+            if(e.ctrlKey){                 
+                location.href = 'http://www.amazon.in&#39';
+            } else {                 
+                document.write(`Button Id : ${obj.id} <br> Button Class: ${obj.className} <br>                
+                Clicked At X : ${e.clientX} <br> Ctrl Key : ${e.ctrlKey}`)             
+            }         
+        }     
+    </script> 
+</head> 
+<body>     
+    <button id="btnInsert" class="btn btn-primary" onclick="InsertClick(this,event)">Insert - Ctrl+Click to Visit 
+    Amazon</button> 
+</body> 
+
+
+<!-- Custom Arguments   -->
+<head>     
+    <script>         
+        function InsertClick(e, obj, msg){             
+            if(e.ctrlKey){                 
+                location.href = 'http://www.amazon';
+            } else {                 
+                document.write(`Button Id : ${obj.id} <br> Button Class: ${obj.className} <br>                
+                Clicked At X : ${e.clientX} <br> Ctrl Key : ${e.ctrlKey} <br> Message  : ${msg}`)             
+            }         
+        }     
+    </script> 
+</head> 
+<body>     
+    <button id="btnInsert" class="btn btn-primary" onclick="InsertClick(event,this,'Hello ! You Clicked Insert Button')">Insert - Ctrl+Click to Visit Amazon</button> 
+</body> 
+ 
+//Ex:-  
+<head>     
+    <script>           
+        function DatabaseOperation(buttonName){              
+            switch(buttonName){            
+                case 'Insert': document.write(`Record Inserted`);                  
+                break;                  
+                case 'Update':                  
+                document.write(`Record Updated`);                  
+                break;                  
+                case 'Delete': document.write(`Record Deleted..`);                  
+                break;              
+            }           
+        }           
+    </script> 
+</head> 
+<body>     
+    <button name="Insert" onclick="DatabaseOperation(this.name)">Insert</button>     
+    <button name="Update" onclick="DatabaseOperation(this.name)">Update</button>     
+    <button name="Delete" onclick="DatabaseOperation(this.name)">Delete</button>     
+    <select onchange="DatabaseOperation(this.value)">         
+        <option>Insert</option> 
+        <option>Update</option>         
+        <option>Delete</option>     
+    </select> 
+</body>

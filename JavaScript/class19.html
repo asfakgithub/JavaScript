@@ -1,0 +1,163 @@
+<!-- Switch Selector  -->
+<script>       
+    var n=3;       
+    switch(n) {         
+        case 1:         
+        document.write("One");         
+        break;         
+        case 2:         
+        document.write("Two");         
+        break;         
+        case 3:         
+        document.write("Three");         
+        break;         
+        default:         
+        document.write("Please Enter 1 to 3");         
+        break;     
+    } 
+</script> 
+
+
+
+<!-- How to handle multiple case values for a set of statements?  -->
+<!-- Ex -->
+<!-- <script>  
+    function f1() {          
+         var choice = "N";           
+         switch(choice) {              
+            case "y":              
+            case "Y":              
+            document.write("You selected Yes");              
+            break;              
+            case "n":             
+            case "N": 
+            document.write("You selected No");            
+            break;              
+            default:              
+            document.write("Please enter y or n");            
+            break;           
+        }       
+    }      
+    f1();  
+</script>  -->
+
+
+
+
+<!-- Ex:-    -->
+<!-- <script>
+    function f1(){         
+        var choice = "NO";               
+        switch(choice.toLowerCase()) {                
+            case "yes":                
+            document.write("You selected Yes");                
+            break;                
+            case "no":                      
+            document.write("You selected No");                 
+            break;                     
+            default:                 
+            document.write("Please enter y or n");                 
+            break;          
+        }      
+    }      
+    f1();  
+</script>  -->
+
+
+
+<!-- How to handle a lengthy string as it is case sensitive? Ans :  We convert the case and verify.  -->
+<!-- Ex:-   -->
+<script>    
+    function f1(){       
+        var choice = "YeS";       
+        switch(choice.toLowerCase()){           
+            case "yes":           
+            document.write("You Selected Yes");           
+            break;           
+            case "no":           
+            document.write("You Selected No");           
+            break;           
+            default:           
+            document.write("Please Enter yes or no only");           
+            break;       
+        }    
+    }    
+    f1();  
+</script> 
+
+
+
+<!-- How to define case for range of values?  -->
+<!-- <script> 
+    function f1() {       
+        var n = 6;      
+        switch(true) {          
+            case (n>=1 && n<=10):          
+            document.write(`Your number ${n} is between 1 to 10`);          
+            break;          
+            case (n>10 && n<=20):          
+            document.write(`You number ${n} is between 11 to 20`);          
+            break;          
+            case (n>5 && n<=20):          
+            document.write(`Your number ${n} is between 5 to 20`);          
+            break;          
+            default:         
+            document.write(`Your number ${n} is -ve or above 20`);          
+            break;      
+        }    
+    }    
+    f1(); 
+</script> -->
+
+
+
+<!-- If switch is using boolean expression then what should be       the switch value? Ans :  only "true"   -->
+<!-- Ex:-   -->
+<!-- <script>    
+    function f1() {       
+        var n = 12;       
+        switch(true) { 
+            case n>=1 && n<=10:          
+            document.write(`Your number ${n} is between 1 to 10`);          
+            break;          
+            case n>11 && n<=20:          
+            document.write(`Your number ${n} is between 11 to 20`);          
+            break;      
+        }   
+    }   
+    f1(); 
+</script>  -->
+     
+
+
+    
+<!-- Can we define "if" condition in switch case? Ans:  Yes  -->
+<!-- Ex:-   -->
+<!-- <script>     
+    function f1() {       
+        var n = 5;      
+        switch(true) {          
+            case (n>=1 && n<=10):           
+            if(n==5) { 
+                document.write("You Entered 5");           
+            } else {             
+                document.write(`Your number ${n} is between 1 to 10`);           
+            }          
+            break;          
+            case (n>10 && n<=20):          
+            document.write(`You number ${n} is between 11 to 20`);          
+            break;          
+            case (n>5 && n<=20):          
+            document.write(`Your number ${n} is between 5 to 20`);          
+            break;          
+            default:          
+            document.write(`Your number ${n} is -ve or above 20`);          
+            break;      
+        }    
+    }    
+    f1(); 
+</script> -->
+
+
+
+

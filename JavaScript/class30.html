@@ -1,0 +1,159 @@
+<!-- Browser Events -->
+<!-- Ex:-  -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Events</title>         
+    <script>             
+        function Cut(){
+            document.querySelector("h2").innerHTML = "Removed : Copied to Clipboard";
+        }
+        function Copy(){
+            document.querySelector("h2").innerHTML = "Copied : Content copied to Clipboard";
+        }
+        function Paste(){
+            document.querySelector("h2").innerHTML = "Inserted : Content inserted from Clipboard";
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Your comments</legend>
+        <textarea oncut="Cut()" oncopy="Copy()" onpaste="Paste()" rows="4" cols="30"></textarea>
+    </fieldset>
+    <h2 align="center"></h2>
+</body>
+</html>
+
+
+<!-- Button Events: -->
+<!-- Ex:- -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function OpenImage(){
+            window.open('kfc.jpg','nike','width=400 height=300');
+        }
+    </script>
+</head>
+<body>
+    <img ondblclick="OpenImage()" src="mobile.jpg" width="100" height="100">
+    <p>double click to view large</p>
+</body>
+</html>
+
+
+
+<!-- Ex:-   -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function OpenImage(){
+            window.open('kfc.jpg','nike','width=400 height=300');
+        }
+    </script>
+</head>
+<body>
+    <img ondblclick="OpenImage()" src="mobile.jpg" width="100" height="100">
+    <p>double click to view large</p>
+    <a href="javascript:OpenImage()">Click</a>
+</body> 
+</html> 
+
+<!-- Form Events: onsubmit + onreset -->
+<!-- Ex:- -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function SubmitClick(){
+            alert('Data will be submitted to API');
+            location.href="http://fakestoreapi.com/products&quot";
+        }
+        function CancelClick(){
+            alert('Form will reset')
+        }
+        function CityChanged(){
+            frmRegister.submit();
+        }
+    </script>    
+</head>
+<body>
+    <form name="frmRegister" id="frmRegister" onsubmit="SubmitClick()" onreset="CancelClick()" >
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" name="username"></dd>
+            <dt>Age</dt>
+            <dd><input type="number" name="age"></dd>
+            <dt>City</dt>
+            <dd>
+                <select name="city" onchange="CityChanged()">
+                    <option>Delhi</option>
+                    <option>Hyd</option>
+                </select>
+            </dd>
+        </dl>
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+    </form>
+</body>
+</html> 
+
+
+
+<!-- Focus Events- onfocus + onblur -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function Focus(){
+            document.getElementById("msg").innerHTML = "Name in Block Letters Only";
+        }
+        function Blur(){
+            var username = document.getElementById("txtName").value;
+            document.getElementById("txtName").value = username.toUpperCase();
+            document.getElementById("msg").innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>User Name</legend>
+        <input type="text" id="txtName" onfocus="Focus()" onblur="Blur()">
+        <div id="msg"></div>
+    </fieldset>
+</body> 
+</html> 
+
+
+
+<!-- Touch Events- ontouchstart + ontouchend + ontouchmove  -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <script>
+        function GetImageId(id){
+            switch(id){
+                case 'nike':
+                document.querySelector("p").innerHTML = "Nike Casuals - 5600.55";
+                break;
+                case 'boat':
+                document.querySelector("p").innerHTML = "boAt Neckband - 6600.55";
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img width="100" height="100" ontouchstart="GetImageId(this.id)" src="../public/images/shoe.jpg" id="nike">         
+    <img width="100" height="100"  ontouchstart="GetImageId(this.id)" src="../public/images/neckband.PNG" id="boat">
+    <p> </p>     
+</body>
+</html> 

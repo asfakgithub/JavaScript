@@ -1,5 +1,6 @@
 <!-- JavaScript can refer HTML elements by using DOM  -->
-<!-- <!DOCTYPE html>  <html>
+<!-- <!DOCTYPE html>  
+<html>
 <head>         
     <title>JavaScript - Inline</title>         
     <script>             
@@ -25,41 +26,41 @@
         </form>         
     </div>     
 </body> 
-</html>    -->
+</html>  -->
 
 
 
 <!-- JavaScript can refer elements by using "name". -->
 <!-- <!DOCTYPE html>  
 <html>     
-    <head>         
-        <title>JavaScript - Inline</title>         
-        <script>             
-            function bodyload(){ 
-                pic.src="images.jpg";                 
-                frmRegister.btnRegister.value="Register";                 
-                frmLogin.btnLogin.value = "Login";             
-            }         
-        </script>     
-    </head>     
-    <body onload="bodyload()">         
-        <img width="100" name="pic" height="100" border="1">         
-        <div>             
-            <form name="frmRegister">                 
-                <h2>Register</h2>                 
-                User Name :<input type="text" name="txtName"> 
-                <input name="btnRegister" type="button">              
-            </form>         
-        </div>         
-        <div>             
-            <form name="frmLogin">                 
-                <h2>Login</h2>                 
-                Email : <input name="txtEmail" type="email"> 
-                <input name="btnLogin" type="button">             
-            </form>         
-        </div>     
-    </body> 
-    </html>  -->
+<head>         
+    <title>JavaScript - Inline</title>         
+    <script>             
+        function bodyload(){ 
+            pic.src="images.jpg";                 
+            frmRegister.btnRegister.value="Register";                 
+            frmLogin.btnLogin.value = "Login";             
+        }         
+    </script>     
+</head>     
+<body onload="bodyload()">         
+    <img width="100" name="pic" height="100" border="1">         
+    <div>             
+        <form name="frmRegister">                 
+            <h2>Register</h2>                 
+            User Name :<input type="text" name="txtName"> 
+            <input name="btnRegister" type="button">              
+        </form>         
+    </div>         
+    <div>             
+        <form name="frmLogin">                 
+            <h2>Login</h2>                 
+            Email : <input name="txtEmail" type="email"> 
+            <input name="btnLogin" type="button">             
+        </form>         
+    </div>     
+</body> 
+</html>  -->
 
 
 
@@ -82,7 +83,8 @@
     <div>             
         <form name="frmRegister"> 
             <h2>Register</h2>                 
-            User Name :<input type="text" name="txtName"> <input id="btnRegister" name="btnRegister" type="button">              
+            User Name :<input type="text" name="txtName"> 
+            <input id="btnRegister" name="btnRegister" type="button">              
         </form>         
     </div>         
     <div>             
@@ -93,7 +95,7 @@
         </form>         
     </div>     
 </body> 
-</html>  -->
+</html>   -->
 
 
 
@@ -105,7 +107,7 @@
     <title>JavaScript - Inline</title>         
      <script>             
         function bodyload(){                 
-            document.querySelector("#pic").src="../public/images/laptop.pn g";        
+            document.querySelector("#pic").src="images(3).jpg";       
             document.querySelector(".btn-register").value="Register";                
             document.querySelector(".btn-login").value="Login";             
         }         
@@ -139,7 +141,7 @@
     <title>JavaScript - Inline</title>         
     <script>             
         function bodyload(){                
-            result = document.getElementsByName("pay");                
+            result = document.getElementsByName("pay"); 
             alert("Total Number of Payment Methods : " + result.length); 
         }         
     </script>     
@@ -148,7 +150,7 @@
     <fieldset>             
         <legend>Payment Method</legend>             
         <input type="radio" name="pay"> Cash              
-        <input type="radio" name="pay"> UPI             
+        <input type="radio" name="pay"> UPI
         <input type="radio" name="pay"> Credit Card         
     </fieldset>     
 </body> 
@@ -176,7 +178,7 @@
         <input type="radio" name="pay"> Credit Card         
     </fieldset>     
 </body> 
-</html>  -->
+</html>   -->
 
 
 
@@ -209,19 +211,20 @@
 
 
 <!-- JavaScript Output Techniques  -->
-<!-- <!DOCTYPE html> 
+<!DOCTYPE html>
 <html>  
 <head> 
-    <title>Demo</title> <script>  
+    <title>Demo</title> 
+    <script>  
         function InsertClick(){   
             alert("Record Inserted\nYou check the database.");  
         }  
     </script>  
 </head> 
-<body>  
+<body>   
     <button onclick="InsertClick()">Insert</button> 
 </body> 
-</html>  -->
+</html> 
 
 
 
@@ -296,7 +299,7 @@
 
 
 <!-- JavaScript Input Techniques -->
-<!DOCTYPE html>  
+<!-- <!DOCTYPE html>  
 <html>     
 <head>         
     <title>Demo</title> 
@@ -309,4 +312,4 @@
 <body onload="bodyload()">         
     <p align="center"></p>     
 </body> 
-</html> 
+</html>  -->

@@ -1,0 +1,132 @@
+<!-- JavaScript Loops are defined by using  -->
+
+<!-- The "for" loop:    -->
+<!-- <head>     
+    <script>         
+        function bodyload(){             
+            var data = [                 
+            {Category: "Electronics", Products: ["TV","Mobile"]},                 
+            {Category: "Footwear", Products: ["Nike Casuals","Lee Boot"]};  
+            for(var i=0; i<data.length; i++)  {                 
+                var olLi = document.createElement("li");                 
+                olLi.innerHTML = data[i].Category;      
+                document.querySelector("ol").appendChild(olLi);                 
+                for(var j=0; j<data[i].Products.length; j++) {                     
+                    var ul = document.createElement("ul");                     
+                    var ulLi = document.createElement("li");                     
+                    ulLi.innerHTML = data[i].Products[j];                     
+                    ul.appendChild(ulLi);                     
+                    document.querySelector("ol").appendChild(ul);                 
+                }             
+            }         
+        }     
+    </script> 
+</head> 
+<body onload="bodyload()">     
+        <ol> </ol> 
+</body> -->
+
+
+
+
+<!-- The "while" Loop:    -->
+<!-- var  i = 1;         
+while(i<=10)  {           
+    document.write(i + "<br>");           
+    i++;         
+}  -->
+ 
+
+
+<!-- The "do" loop -->
+<!-- <script>      
+    function f1(){          
+        var i=11;          
+        do  {              
+            document.write(i + "<br>");              
+            i++;          
+        }
+        while(i<=10);      
+    }      
+    f1();  
+</script>  -->
+
+
+
+
+
+<!-- Task-1:  Validate PIN for 3 attempts and block if all 3 went  wrong -->
+<!-- <!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Loop</title>         
+    <script>             
+        var userdetails = {                 
+            Pin: '67042'             
+        }             
+        function SubmitClick() {                         
+
+        }         
+    </script> 
+</head>     
+<body>         
+    <fieldset>             
+        <legend>Your PIN [Max 3 attempts]</legend>             
+        <input type="text" id="txtPin" size="5"> 
+        <button>Submit</button>         
+    </fieldset>     
+</body> 
+</html>  -->
+
+
+
+
+<!-- Task-2:  Write a program to convert number to words  -->
+<!-- <!DOCTYPE html>  
+<html>     
+    <head>         
+        <title>Loop</title>         
+        <script>              
+            function Convert(){                 
+                var amount = document.getElementById("txtAmount").value;                 
+                var hundreds = ['One', 'Two', 'Three', 'Four'];                 
+                for(var i=0; i<hundreds.length; i++) {                     
+                    if(hundreds[i]==amount) {                         
+                        document.getElementById("msg").innerHTML = hundreds[i] + " Hundred";                                     
+                    }                 
+                }              
+            }         
+        </script> 
+    </head>     
+<body>         
+    <fieldset>             
+        <legend>Enter Amount</legend>             
+        <input type="text" onkeyup="Convert()" id="txtAmount" size="6">             
+        <p>In Words : <span id="msg"></span> </p>         
+    </fieldset>     
+</body> 
+</html>  -->
+
+
+
+
+<!-- Jump Statements   -->
+<!-- - continue  -->
+<!-- <script>      
+    function f1() {        
+        var products = [            
+        {Name:"TV", Category:"Electronics"},            
+        {Name:"Nike", Category:"Footwear"},            
+        {Name:"Mobile", Category:"Electronics"},            
+        {Name:"Shirt", Category:"Fashion"}        
+        ];        
+        for(var i=0; i<products.length; i++) {            
+            if(products[i].Category=="Electronics" || products[i].Category=="Footwear") 
+            {               
+                continue;            
+            }            
+            document.write(products[i].Name + "<br>");        
+        }     
+    }     
+    f1(); 
+</script>  -->

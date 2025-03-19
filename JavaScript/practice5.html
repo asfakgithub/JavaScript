@@ -1,0 +1,213 @@
+<!-- <!DOCTYPE html>  
+<html lang="en-IN"> 
+<head>     
+    <title>EMI Calculator</title>     
+    <link rel="stylesheet" href="/node_modules/bootstrapicons/font/bootstrap-icons.css">     
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">     
+    <style>         
+        input {             
+            width: 100px;         
+        }         
+        #border {            
+            border: 5px solid black;             
+            padding: 20px;             
+            border-radius: 10px;         
+        }     
+    </style>     
+    <script> 
+        function AmountChange() {             
+            document.getElementById("txtAmount").value = document.getElementById("rangeAmount").value;         
+        }         
+        function YearChange() {             
+            document.getElementById("txtYear").value = document.getElementById("rangeYear").value;         
+        }         
+        function RateChange() {             
+            document.getElementById("txtRate").value = document.getElementById("rangeRate").value;         
+        }         
+        function Calculate() {             
+            var amount = document.getElementById("rangeAmount").value;             
+            var year = document.getElementById("rangeYear").value;             
+            var rate = document.getElementById("rangeRate").value;             
+            var EMI = [amount * (rate) * (1 + rate ) ^ year] / [(1 + rate) ^ (year - 1)];
+            document.getElementById("msg").innerHTML = `Your Monthly EMI will be &#8377;
+            ${EMI.toFixed(2)} per month`;         
+        }     
+    </script> 
+</head> 
+<body>     
+    <div class="m-5" id="border">         
+        <h2 class="bg-info text-white text-center p-2">EMI Calculator</h2>         
+        <div class="row my-5">             
+            <div class="col">                 
+                Amount <input type="text" id="txtAmount" placeholder="&#8377;">   <br>              
+                10000<input type="range" id="rangeAmount" onchange="AmountChange()" class="form-range w-75" min="20000"                     
+                max="200000" value="10000">   200000            
+
+            </div>             
+            <div class="col">                 
+                Select <input type="text" id="txtYear" placeholder="Years">                 
+                <input type="range" id="rangeYear" onchange="YearChange()" class="form-range w-75" min="1" max="10"                     
+                value="00">                 
+                <div class="row w-75">                     
+                    <div class="col">1 Year</div>                     
+                    <div class="col text-end">10 Year</div>                 
+                </div>             
+            </div>             
+            <div class="col">                 
+                Interest <input type="text" id="txtRate" placeholder="%">                 
+                <input type="range" id="rangeRate" onchange="RateChange()" class="form-range w-75" min="1" max="20"                     
+                value="00" step="0.05">                 
+                <div class="row w-75"> 
+                    <div class="col">1%</div>                     
+                    <div class="col text-end">20%</div>                 
+                </div>             
+            </div>         
+        </div>         
+        <div class="mt-5">             
+            <button class="btn btn-success" onclick="Calculate()">Calculate</button>         
+        </div>         <p id="msg" class="mt-5 text-center text-white bg-danger p3 w-50"></p>     
+    </div>     
+    <script src="/node_modules/jquery/dist/jquery.js"></script>     
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"> </script> 
+</body> 
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Class14 -->
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>Login</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrapicons/font/bootstrap-icons.css">         
+    <style>             
+        dd,dt {                 
+            margin-top: 10px;             
+        }         
+    </style>         
+    <script>             
+        function GenerateCode() { 
+            var a = Math.random() * 10;                 
+            var b = Math.random() * 10;                 
+            var c = Math.random() * 10;                 
+            var d = Math.random() * 10;                 
+            var e = Math.random() * 10;                 
+            var f = Math.random() * 10;                 
+            return `${Math.round(a)} ${Math.round(b)} ${Math.round(c)} ${Math.round(d)} ${Math.round(e)} ${Math.round(f)}`;             
+        }             
+            function bodyload()  {                 
+                document.getElementById("code").innerHTML = GenerateCode();             
+            }             
+            function NewCode()  {                 
+                bodyload();             
+            }         
+        </script>     
+</head>     
+<body onload="bodyload()">         
+    <fieldset>             
+        <legend>User Login</legend>             
+        <dl>                 
+            <dt>User Name</dt>                 
+            <dd><input type="text"></dd>                 
+            <dt>Password</dt>                 
+            <dd><input type="password"></dd> 
+            <dt>Verify Code 
+                <button onclick="NewCode()" class="btn">
+                    
+                    <i class="bi bi-arrowclockwise"></i>
+                </button> 
+            </dt>                 
+            <dd><span id="code"></span></dd>             
+        </dl>             
+        <button>Login</button>         
+    </fieldset>     
+</body> 
+</html> 
+
+
+
+<!-- Class 16 -->
+<!-- <!DOCTYPE html>  
+<html lang="en-IN"> 
+<head>     
+    <title>EMI Calculator</title>     
+    <link rel="stylesheet" href="/node_modules/bootstrapicons/font/bootstrap-icons.css">     
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">     
+    <style>         
+        input {             
+            width: 100px;         
+        }         
+        #border {            
+            border: 5px solid black;             
+            padding: 20px;             
+            border-radius: 10px;         
+        }     
+    </style>     
+    <script> 
+        function AmountChange() {             
+            document.getElementById("txtAmount").value = document.getElementById("rangeAmount").value;         
+        }         
+        function YearChange() {             
+            document.getElementById("txtYear").value = document.getElementById("rangeYear").value;         
+        }         
+        function RateChange() {             
+            document.getElementById("txtRate").value = document.getElementById("rangeRate").value;         
+        }         
+        function Calculate() {             
+            var amount = document.getElementById("rangeAmount").value;             
+            var year = document.getElementById("rangeYear").value;             
+            var rate = document.getElementById("rangeRate").value;             
+            var EMI = amount * (rate / 100) * (1 + (rate / 100)) * year * 12 / ((1 + (rate / 100)) * (year * 12) - 1);
+            document.getElementById("msg").innerHTML = `Your Monthly EMI will be &#8377;${EMI.toFixed(2)} per month`;         
+        }     
+    </script> 
+</head> 
+<body>     
+    <div class="m-5" id="border">         
+        <h2 class="bg-info text-white text-center p-2">EMI Calculator</h2>         
+        <div class="row my-5">             
+            <div class="col">                 
+                Amount <input type="text" id="txtAmount" placeholder="&#8377;">                 
+                <input type="range" id="rangeAmount" onchange="AmountChange()" class="form-range w-75" min="20000"                     
+                max="200000" value="10000">                 
+                <div class="row w-75">                     
+                    <div class="col">&#8377;10,000</div>                     
+                    <div class="col text-end">&#8377;2,00,000</div>                 
+                </div> 
+            </div>             
+            <div class="col">                 
+                Select <input type="text" id="txtYear" placeholder="Years">                 
+                <input type="range" id="rangeYear" onchange="YearChange()" class="form-range w-75" min="1" max="10"                     
+                value="00">                 
+                <div class="row w-75">                     
+                    <div class="col">1 Year</div>                     
+                    <div class="col text-end">10 Year</div>                 
+                </div>             
+            </div>             
+            <div class="col">                 
+                Interest <input type="text" id="txtRate" placeholder="%">                 
+                <input type="range" id="rangeRate" onchange="RateChange()" class="form-range w-75" min="1" max="20"                     
+                value="00" step="0.05">                 
+                <div class="row w-75"> 
+                    <div class="col">1%</div>                     
+                    <div class="col text-end">20%</div>                 
+                </div>             
+            </div>         
+        </div>         
+        <div class="mt-5">             
+            <button class="btn btn-success" onclick="Calculate()">Calculate</button>         
+        </div>         <p id="msg" class="mt-5 text-center text-white bg-danger p3 w-50"></p>     
+    </div>     
+    <script src="/node_modules/jquery/dist/jquery.js"></script>     
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"> </script> 
+</body> 
+</html> -->

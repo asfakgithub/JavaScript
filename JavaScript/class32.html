@@ -1,0 +1,134 @@
+<!-- location.hash -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tutorial</title>
+    <script>
+        function GetTopic(){
+            var topic = location.hash;
+            switch(topic) {
+                case "#html":
+                var now = new Date();
+                console.log(`You Recently Viewed HTML Tutorial : ${now.toString()}`);
+                break;
+                case "#css":
+                var now = new Date();
+                console.log(`You Recently Viewed CSS Examples : ${now.toString()}`); 
+                break; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="GetTopic()">Get Previous Topic</button>
+    <div>
+        <a href="#html">HTML</a>
+        <span>|</span>
+        <a href="#css">CSS</a>
+    </div><h2 id="html">HTML</h2>
+    <p>Your use of this software is subject to the terms and conditions of the license agreement by which 
+        you acquired this software.  If you are a volume license customer, use of this software is subject 
+        to your volume license agreement.  You may not use this software if you have not validly acquired a 
+        license for the software from Microsoft or its licensed distributors.
+    </p>
+    <h2 id="css">CSS</h2>
+    <p>Your use of this software is subject to the terms and conditions of the license agreement by which you
+        acquired this software.  If you are a volume license customer, use of this software is subject to 
+        your volume license agreement.  You may not use this software if you have not validly acquired a 
+        license for the software from Microsoft or its licensed distributors.
+    </p>
+</body>
+</html> 
+
+
+<!-- Ex:- General Browser Details   -->
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Navigator</title>
+    <script>
+        function GetDetails(){
+            document.querySelector("p").innerHTML= `Browser Family : ${navigator.appName} <br>
+            Language  : ${navigator.language} <br>
+            Platform  : ${navigator.platform} <br>
+            Cookie Enabled : ${(navigator.cookieEnabled)==true?"Yes":"No-Please Enabled Cookies on Your Browser"}`;
+        }
+    </script>
+</head>
+<body>     
+    <button onclick="GetDetails()">Get Details</button>
+    <p></p>
+</body>
+</html> 
+
+<!-- Ex:- To Get all plugins   -->
+<script>
+    function f1(){
+        for(var item of navigator.plugins) {
+            document.write(item.name + "<br>");
+        } 
+    }
+    f1();
+</script> 
+
+<!-- Ex:- To Check any specific plugin   -->
+<script>
+    function f1(){
+        if(navigator.plugins['PDF Viewer']==undefined){
+            alert("You Browser is not enabled for PDF - Please Install");
+            location.href="http://www.adobe.com/downloads&quot";
+        } else {
+            document.write("You can watch PDF documents");
+        }
+    }
+    f1();
+</script> 
+
+
+
+<!-- <noscript>  -->
+<!-- Ex:-   -->
+<h2>JavaScript</h2>
+<noscript>        
+    Enable JavaScript on your browser.
+</noscript> 
+
+
+
+<!-- MIME Types? -->
+<script>
+    function f1(){
+        for(var item of navigator.mimeTypes) {
+            document.write(item.type + "<br>");
+        }
+    }
+    f1();
+</script> 
+
+
+
+<!-- How to access Geo Location?  -->
+<script>
+    function f1(){
+        navigator.geolocation.getCurrentPosition(function(position){
+            document.write(`Latitude : ${position.coords.latitude} <br>
+            Longitude: ${position.coords.longitude} `);
+        })
+    } 
+    f1(); 
+</script> 
+
+
+
+<!-- History Object -->
+<script>
+    function f1(){
+        if(history.length<3) {
+            document.write("You can view Max 3 Pages for free..");
+        } else{             
+            ("Please Register for More..");
+            location.href="login.html"; 
+        }
+    }
+    f1();
+</script> 

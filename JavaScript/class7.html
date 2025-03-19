@@ -1,0 +1,290 @@
+<!-- substring() -->
+
+<script>       
+    function SentenceCase(str){           
+        var firstChar = str.charAt(0);           
+        var restChars = str.substring(1);           
+        return firstChar.toUpperCase() + restChars.toLowerCase();           
+    }       
+    var msg = "wELcoME to JaVAscriPT";       
+    document.write(msg + "<br>");       
+    document.write(SentenceCase(msg));  
+</script> 
+ 
+
+<!-- Split words   -->
+<script>      
+    var msg = "Welcome-to-JavaScript";      
+    var result = msg.split('-');      
+    document.write(result[1] + "<br>");      
+    document.write(result[2]);  
+</script> 
+
+
+<!-- Write a function that can convert the sentence into           -->
+<!-- titlecase. [Every word first char must be capital letter] Ans -->
+<!DOCTYPE html>  
+<html lang="en"> 
+<head>     
+    <title>TitleCase</title>     
+    <script>         
+        function titleCase(){             
+            var msg = ("welcome to javascript");              
+            splitmsg = msg.split(" ");             
+            for(i=0;i<splitmsg.length;i++){                 
+                document.write(splitmsg[i].charAt(0).toUpperCase() + splitmsg[i].slice(1) + " ");             
+            }            
+        }     
+    </script> 
+</head> 
+<body>         
+    <button onclick="titleCase()">             
+        Click         
+    </button>     
+</body> 
+</html>
+
+
+<!-- IndexOf() & lastIndexOf()  -->
+
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>String</title>         
+    <script>             
+        function VerifyEmail(){                 
+            var email = document.getElementById("txtEmail").value;                 
+            var msg = document.querySelector("h2");                 
+            var atPos = email.indexOf("@");                 
+            if(atPos<3) {                     
+                msg.innerHTML = "Invalid Email";                 
+            } else {                     
+                msg.innerHTML = "Email Verified";                 
+            }             
+        }         
+    </script>     
+</head>     
+<body>         
+    <fieldset>             
+        <legend>Your Email</legend>             
+        <input type="text" id="txtEmail"> 
+        <button onclick="VerifyEmail()">Submit</button>         
+    </fieldset>         
+    <h2></h2>     
+</body> 
+</html>
+
+
+<!-- startsWith() & endsWith():  -->
+
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>String</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">         
+    <script>             
+        function VerifyCard(){                 
+            var cardnumber = document.getElementById("txtCard").value;                 
+            var cardImg = document.getElementById("cardImg");                 
+            if(cardnumber.startsWith("4444")){                     
+                cardImg.src = "../public/images/master.png";                 
+            } else if(cardnumber.startsWith("5555")) {                     
+                cardImg.src = "../public/images/visa.png";                 
+            } else {                     
+                cardImg.src=""; 
+                cardImg.alt = "N/A";                 
+            }             
+        }             
+        function VerifyEmail(){                 
+            var email = document.getElementById("txtEmail").value;                                 
+            if(email.endsWith("gmail.com")) {                     
+                document.getElementById("msg").innerHTML = "Email Verified";                 
+            } else {                     
+                document.getElementById("msg").innerHTML = "Invalid Email";                 
+            }             
+        }         
+    </script>     
+</head>     
+<body class="container-fluid">         
+    <fieldset>             
+        <legend>Verify Details</legend>             
+        <div>                 
+            <h3>Card Number</h3>                 
+            <div class="input-group">                     
+                <input type="text" id="txtCard" onkeyup="VerifyCard()" class="form-control">                     
+                <img class="input-group-text" id="cardImg" class="img-fluid" width="100" height="50">                 
+            </div>                 
+            <h3>Your Gmail</h3>                 
+            <div>                     
+                <input type="text" onkeyup="VerifyEmail()" id="txtEmail" class="form-control">                     
+                <div id="msg">  </div>                 
+            </div>             
+        </div>         
+    </fieldset>     
+</body> 
+</html>
+
+
+<!-- match() : -->
+
+<!DOCTYPE html>  
+<html>     
+<head> 
+    <title>MatchDemo</title>         
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">         
+    <style>             
+        meter {                 
+            height: 30px;             
+        }         
+    </style>         
+    <script>             
+        function VerifyPassword(){                 
+            var password = document.getElementById("txtPwd").value;                 
+            var regExp = /(?=.*[A-Z])\w{4,15}/;                 
+            var msg = document.getElementById("msg");                 
+            var grade = document.getElementById("grade"); 
+            function ShowGrade(min, max, value, low, high) {                     
+                grade.min = min;                     
+                grade.max = max;                     
+                grade.value = value;                     
+                grade.low = low;                     
+                grade.high = high;
+                console.log("Grade:-"+grade);                 
+            }                 
+            if(password=="") {                     
+                msg.innerHTML = "Password Required";                     
+                msg.className = "text-danger";                 
+            } else {                         
+                if(password.match(regExp)) {                         
+                    msg.innerHTML = "Strong Password";                         
+                    msg.className = "text-success";                         
+                    ShowGrade(1,100,100,0,0); 
+                } else {                         
+                    if(password.length<4) {                             
+                        msg.innerHTML = "Poor Password";                             
+                        msg.className = "text-danger";                             
+                        ShowGrade(1,100,100,60,80);                         
+                    } else {                             
+                        msg.innerHTML = "Weak Password";                             
+                        msg.className = "text-warning"                             
+                        ShowGrade(1,100,100,40,80);                         
+                    }                     
+                }                 
+            }             
+        }             
+        function VerifyMobile(){                 
+            var mobile = document.getElementById("txtMobile").value;                 
+            var mobileExpression = /\+91\d{10}/;                 
+            var mobileError = document.getElementById("mobileError");                 
+            if(mobile.match(mobileExpression)) {                     
+                mobileError.innerHTML = "";                 
+            } else {                     
+                mobileError.innerHTML = "Invalid Mobile";                     
+                mobileError.className = "text-danger";                 
+            }             
+        }         
+    </script>     
+</head>     
+<body class="container-fluid">         
+    <h2>Verify Password</h2>         
+    <input type="password" onkeyup="VerifyPassword()" id="txtPwd" class="form-control">         
+    <div id="msg"></div>         
+    <div>             
+        <meter id="grade" min="1" max="100" class="w100"></meter>         
+    </div>         
+    <h2>Verify Mobile</h2>         
+    <input type="text" onkeyup="VerifyMobile()" id="txtMobile" class="form-control">         
+    <div id="mobileError"></div>     
+</body> 
+</html> 
+
+
+<!DOCTYPE html>  
+<html>     
+<head>         
+    <title>String Match</title>         
+    <script>             
+        function VerifyPassword(){                 
+            var password = document.getElementById("txtPwd").value;                 
+            var regExp = /(?=.*[A-Z])\w{4,10}/;                 
+            var error = document.getElementById("error"); 
+            function ShowGrade(min, max, value){                     
+                var grade = document.getElementById("grade");                     
+                grade.min = min;                     
+                grade.max = max;                     
+                grade.value = value;                 
+            } 
+            if(password.match(regExp)) {                     
+                error.innerHTML = "Strong Password";                     
+                error.style.color= "green";                     
+                ShowGrade(1,100,100);                 
+            } else {                     
+                if(password.length<4){                         
+                    error.innerHTML = "Poor Password";                         
+                    error.style.color = "red";                         
+                    ShowGrade(1,100,20);                     
+                } else {                         
+                    error.innerHTML = "Weak Password";                         
+                    error.style.color = "goldenrod";                         
+                    ShowGrade(1,100,60);                     
+                }                 
+            }             
+        }         
+    </script>     
+</head>     
+<body>         
+    <fieldset>             
+        <legend>Your Password</legend>             
+        <input type="password" onkeyup="VerifyPassword()" id="txtPwd">             
+        <div>                 
+            <meter id="grade" style="width: 150px; height: 20px;"></meter>             
+        </div>             
+        <div id="error"></div>         
+    </fieldset>     
+</body> 
+</html>
+
+
+<!-- trim() & split() :  -->
+
+<!DOCTYPE html> 
+<html>     
+    <head>         
+        <title>Trim demo</title>         
+        <script>             
+            function VerifyPassword(){                 
+                var pwd = document.getElementById("txtPwd").value;                 
+                if(pwd.trim()=="admin") {                    
+                    document.querySelector("h2").innerHTML = "Verified";                 
+                } else {                     
+                    document.querySelector("h2").innerHTML = "Invalid Password";                 
+                }             
+            }         
+        </script>     
+    </head>     
+<body>         
+    Your Password :         
+    <input type="text" id="txtPwd"> 
+    <button onclick="VerifyPassword()">Submit</button>         
+    <h2></h2>     
+</body> 
+</html> 
+
+<!-- Ex:-   -->
+<script>       
+    var mobileNumbers = "9876543210, 9988877663,  8893928111";       
+    var result = mobileNumbers.split(',');       
+    document.write(result[2]);  
+</script> 
+
+
+<!-- Boolean Type -->
+<script> 
+    var stock = true;      
+    if(stock==1) {         
+        document.write("Stock : Available");     
+    } else {         
+        document.write("Stock : N/A");     
+    } 
+</script> 
+

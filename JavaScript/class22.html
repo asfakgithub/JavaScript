@@ -1,0 +1,62 @@
+<!-- Exception Handling Statements in JavaScript  -->
+
+
+<!-- <script>      
+    function f1() {         
+        try{             
+            var x = 10;             
+            var y = -1;             
+            var z = x / y;             
+            if(y==0) {                 
+                throw "DivideByZeroError: Can't Divide By Zero <br>";             
+            } if(y<0) {                 
+                throw "NoNegativeValue: You Can't Divide by -ve    Number<br>";             
+            }         
+        } catch(exceptionDetails) {           
+            document.write(exceptionDetails);         
+        } finally {             
+            document.write(`Division=${z}`);         
+        }            
+    }     
+    f1(); 
+</script>  -->
+
+
+
+<!-- Function Parameters  -->
+<!-- <script>       
+    function PrintNumbers(totalCount) {       
+        for (var i = 1; i <= totalCount; i++) {           
+            document.write(i + "<br>");       
+        }      
+    }     
+    PrintNumbers(5);     
+    PrintNumbers(10);  
+</script> -->
+
+
+
+
+<!-- <script>      
+    function PrintNumbers(startNumber, endNumber) { 
+        for (var i = startNumber; i <= endNumber; i++) {          
+            document.write(i + "<br>");      
+        }     
+    }     
+    PrintNumbers(22,28);  
+</script>  -->
+
+
+
+<script>     
+    function PrintProduct(id, name, price, stock, cities, rating)  {         
+        document.write(`Product Id : ${id} <br>             
+        Name: ${name} <br>             
+        Price: ${price} <br>             
+        Stock : ${(stock==true)?"Available":"Out of Stock"} <br>             
+        Shipped To: ${cities.toString()} <br>             
+        Rating : ${rating.rate} <br>             
+        From : ${rating.count}`);     
+    }     
+    PrintProduct(101, "Samsung TV", 56000.55, true, ['Delhi',  'Hyd'],{rate:4.3, count:5600}); 
+</script> 

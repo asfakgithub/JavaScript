@@ -1,0 +1,81 @@
+<script>  
+    var y = 5;   
+    document.write(`x is ${typeof y} <br> x=${y}`);  
+</script>   
+
+
+<!-- <script>       
+    var Age = prompt("Enter Age");       
+    if(isNaN(Age)) {          
+        document.write("Please Enter a numeric value");          
+    } else {         
+        document.write("Age=" + Age);       
+    }      
+</script>  -->
+
+
+<!-- When you need parsing? -->
+<!-- <!DOCTYPE html>  
+<html>    
+<head>       
+    <title>Data Types</title>       
+    <script>          
+        function SubmitClick(){             
+            var age = document.getElementById("lstAge").value;             
+            document.write("You will be " + (parseInt(age) + 1) + " next year");          
+        }       
+    </script>    
+</head>    
+<body>       
+    <dl>          
+        <dt>Select Age</dt>          
+        <dd>             
+            <select id="lstAge">                
+                <option value="15">15</option>                
+                <option value="20">20</option>                
+                <option value="25">25</option>             
+            </select>          
+        </dd>               
+    </dl>       
+    <button onclick="SubmitClick()">Submit</button>    
+</body> 
+</html> -->
+
+
+<!-- <script>   
+    var username = "john";  
+    var age =22;  
+    document.write("Hello !"+ username + " " + "you will  be" + " " + (age+1)+ "next year.<br>");
+    document.write(`Hello ! ${username}you will be  ${age=+1} next year.1`);  
+</script>  -->
+ 
+
+<!-- <!DOCTYPE html>  
+<html>    
+<head>       
+    <title>Data Types</title>       
+    <script>          
+        function SubmitClick(){             
+            var username = prompt("Enter Your Name");             
+            var age = document.getElementById("lstAge").value;             
+            var msg1 = "Hello !" + " " + username + " " + "you will be" + " " + (parseInt(age)+1) + " " + "next year.<br>";            
+            var msg2 = `Hello ! ${username} you will be ${parseInt(age)+1} next year.`;             
+            document.write(msg1);             
+            document.write(msg2);          
+        }       
+    </script>    
+</head>    
+<body>       
+    <dl>          
+        <dt>Select Age</dt>          
+        <dd> 
+            <select id="lstAge">                
+                <option value="15">15</option>                
+                <option value="20">20</option>                
+                <option value="25">25</option>             
+            </select>          
+        </dd>               
+    </dl>       
+    <button onclick="SubmitClick()">Submit</button>    
+</body> 
+</html> -->

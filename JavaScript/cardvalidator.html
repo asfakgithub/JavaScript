@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Card Verification</title>
+    <style type="text/css">
+      .container {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .card-input {
+        width: 300px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .card-button {
+        width: 150px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        background-color: #00bcd4;
+        color: #fff;
+        cursor: pointer;
+      }
+      .card-result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Card Verification</h1>
+      <p>
+        Enter your card number to verify if it is a valid card and to fetch the
+        card type and company name
+      </p>
+      <input
+        type="text"
+        class="card-input"
+        id="card-number"
+        placeholder="Enter card number"
+      />
+      <button class="card-button" onclick="verifyCard()">Verify</button>
+      <div class="card-result" id="card-result"></div>
+    </div>
+    <script type="text/javascript">
+      function verifyCard() {
+       var cardNumber = document.getElementById('card-number').value;
+       var cardResult = document.getElementById('card-result');
+
+       if (cardNumber.length < 16 || cardNumber.length > 16) {
+        cardResult.innerHTML = "Invalid card number. Card number should be 16 digits long.";
+       } else {
+        // Check if card number starts with 4, indicating a Visa card
+        if (cardNumber.charAt(0) == 4) {
+         cardResult.innerHTML = "Valid Visa card";
+        }
+        // Check if card number starts with 5, indicating a Mastercard
+        else if (cardNumber.charAt(0) == 5) {
+         cardResult.innerHTML = "Valid Mastercard";
+        }
+        // Check if card number starts with 37, indicating an American Express card
+        else if (cardNumber.substring(0, 2) == "37") {
+         cardResult.innerHTML = "Valid American Express card";
+        }
+        // Check if card number starts with 6, indicating a Discover card
+        else if (cardNumber.charAt(0) == 6) {
+         cardResult.innerHTML = "Valid Discover card";
+        }
+        else {
+         cardResult.innerHTML = "Invalid card. Could not determine card type and company name.";
+         }
+         }
+        }
+    </script>
+  </body>
+</html>
